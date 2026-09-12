@@ -7,7 +7,7 @@ android {
     compileSdk 34 // 建议用 33 或 34，比较稳定
 
     defaultConfig {
-        applicationId "com.kankan.globaltraveling"
+        applicationId "com.kankan.globaltraveling.test"
         minSdk 26
         targetSdk 34
         versionCode 1
