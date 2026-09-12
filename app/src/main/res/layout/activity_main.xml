@@ -36,7 +36,7 @@
             android:background="@android:color/transparent"
             android:completionThreshold="1"
             android:hint="搜索地点"
-            android:drawableStart="@drawable/ic_search_line"
+            android:drawableStart="@drawable/ic_launcher_foreground"
             android:drawablePadding="12dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
