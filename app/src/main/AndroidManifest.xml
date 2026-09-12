@@ -21,7 +21,7 @@ package="com.kankan.globaltraveling">
 
     <meta-data
         android:name="com.amap.api.v2.apikey"
-        android:value="your-key" />
+        android:value="e8558b373f9009d6debaf18a07cd1968" />
 
     <activity
         android:name=".MainActivity"
