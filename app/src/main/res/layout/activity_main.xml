@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+
+    <!-- 1. 全屏地图 (ID: map) -->
+    <com.amap.api.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 顶部搜索气泡 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="60dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#F0F7FF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+
+    <AutoCompleteTextView
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:completionThreshold="1"
+            android:hint="搜索地点"
+            android:drawableStart="@drawable/ic_search_line"
+            android:drawablePadding="12dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#888888"
+            android:textSize="15sp"
+            android:imeOptions="actionDone"/>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 3. 历史记录 (ID: history_scroll, history_container) -->
+    <HorizontalScrollView
+        android:id="@+id/history_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/search_card">
+
+        <LinearLayout
+            android:id="@+id/history_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <!-- 4. 底部悬浮操作岛 (ID: tv_status, btn_set_default, btn_stop, btn_start) -->
+    <!-- 统一冰蓝背景 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#F5FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 第一行：状态文字 + 设为默认 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="请在地图上选点"
+                    android:textColor="#555555"
+                    android:textSize="13sp"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <!-- 竖线分隔符 -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="14dp"
+                    android:background="#CCCCCC"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <!-- 设为默认按钮 -->
+                <TextView
+                    android:id="@+id/btn_set_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设为默认"
+                    android:textColor="#FF9800"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:padding="4dp"
+                    android:background="?android:attr/selectableItemBackground"/>
+            </LinearLayout>
+
+            <!-- 第二行：双大按钮 (稳健布局) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_stop"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="56dp"
+                    android:text="停止模拟"
+                    android:textColor="#D32F2F"
+                    app:cornerRadius="28dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_start"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="56dp"
+                    android:text="开始模拟"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#4CAF50"
+                    app:cornerRadius="28dp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
